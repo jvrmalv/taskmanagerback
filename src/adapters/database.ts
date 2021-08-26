@@ -24,11 +24,11 @@ export default (connection: Connection): DatabaseAdapter => {
       const iLikeQueryParams = {
         where: Object.entries(queryParams)
           .reduce((acc, curr): ILIKEQueryParams => {
-            if (curr[0] == "completed") {
+            if (curr[0] === "completed") {
               return { ...acc, [curr[0]]: curr[1] }
             }
             else {
-              return { ...acc, [curr[0]]: ILike(`${curr[1]}`) }
+              return { ...acc, [curr[0]]: ILike(curr[1]) }
             }
           }, {})
       }
