@@ -15,12 +15,13 @@ export default (connection: Connection): Router => {
   const databaseAdapter = databaseAdapterConstructor(connection);
 
   router.get("/", (req: Request, res: Response) => {
-    listTasks(databaseAdapter).then((tasks) => {
+    const queryParams = req.query
+    listTasks(databaseAdapter, queryParams).then((tasks) => {
       res.json(tasks);
     });
   });
 
-  router.get("/:id", (req: Request, res: Response) => {
+  router.get("getid/:id", (req: Request, res: Response) => {
     getTask(databaseAdapter, req.params.id).then((todo) => res.json(todo));
   });
 
