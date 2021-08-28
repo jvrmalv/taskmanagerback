@@ -28,5 +28,5 @@ The `typeorm.json` file should configured as following:
     }
 }
 ```
-##Running
+## Running
 If migration is needed you shall use `yarn run migrate` on the command line, then, you can run `yarn start` and application will start on `port:3000` 
