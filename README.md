@@ -1,7 +1,7 @@
 # taskmanagerback
 Task/todo management Node REST API
 ## Configuration
-The `typeorm.json` file should configured as following:
+The `typeorm.json` file should be configured as following:
 ```json 
 {
     "type": "postgres",
