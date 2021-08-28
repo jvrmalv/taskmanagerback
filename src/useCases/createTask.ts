@@ -1,6 +1,7 @@
 import { DatabaseAdapter } from "../adapters/database";
 import { Task } from "../entity/tasks"
 
+// Typing for the params Object
 export type CreateParams = {
   name: string,
   completed: boolean,

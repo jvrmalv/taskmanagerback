@@ -10,6 +10,8 @@ import getTask from "../useCases/getTask";
 import removeTask from "../useCases/removeTask";
 import updateTask, { UpdateParams } from "../useCases/updateTask";
 
+
+// This controller will accept the connection Object and return a router with all respective useCases for each CRUD operations
 export default (connection: Connection): Router => {
   const router: Router = express.Router();
   const databaseAdapter = databaseAdapterConstructor(connection);
