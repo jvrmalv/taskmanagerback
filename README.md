@@ -6,7 +6,7 @@ The `typeorm.json` file should configured as following:
 {
     "type": "postgres",
     "host": "{HOST_IP: localhost by default}",
-    "port": {DATABASE_PORT: 5432 by default},
+    "port": "{DATABASE_PORT: 5432 by default}",
     "username": "{POSTGRES_USER_HERE}",
     "password": "{USER_PASSWORD_HERE}",
     "database": "{NAME OF DATABASE: tasksdb by default}",
