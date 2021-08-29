@@ -1,3 +1,4 @@
+// Connection Type is exported here as well as some TypeORM operators
 import { Connection, createConnection, InsertResult, UpdateResult, ILike, FindOperator } from "typeorm";
 import { QueryParams } from "../useCases/listTasks";
 // Typing for the return of the exported function
@@ -14,7 +15,7 @@ type ILIKEQueryParams = {
   [key in keyof QueryParams]: FindOperator<string> | string | boolean | undefined
 }
 
-// This function will accept Typeorm Connection object and render an object containing functions for all necessary operations, abstracting the use of TypeORM
+// This function will accept TypeORM Connection object and output an object containing functions for all necessary operations, abstracting the use of TypeORM
 export default (connection: Connection): DatabaseAdapter => {
   return {
     create: <U, T = unknown>(entity: new () => T, params: U): Promise<T> => {
@@ -36,11 +37,10 @@ export default (connection: Connection): DatabaseAdapter => {
               return { ...acc, [curr[0]]: curr[1] }
             }
             else {
-              return { ...acc, [curr[0]]: ILike(curr[1]) }
+              return { ...acc, [curr[0]]: ILike(`%${curr[1]}%`) }
             }
           }, {}),
       }
-      console.log(iLikeQueryParams)
       return connection.manager.find(entity, iLikeQueryParams);
     },
     update: <U, T = unknown>(entity: new () => T, id: string, payload: U): Promise<T> => {

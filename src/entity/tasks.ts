@@ -1,5 +1,5 @@
 import { BaseEntity, Column, PrimaryGeneratedColumn, Entity } from "typeorm";
-
+//This the entity typing for TypeORM
 @Entity("tasks")
 export class Task extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")

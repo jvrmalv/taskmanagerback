@@ -1,4 +1,5 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
+// To run this migration use the Migrate script from package.json by typing npm run migrate
 export class Inital1629998221342 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
